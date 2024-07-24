@@ -1,4 +1,4 @@
-#W1D2 SE116 Review Demo - split into parts in Canvas
+#W2D2 SE116 
 
 #Bradley Coppinger 
 #Lab 2a 
@@ -19,6 +19,8 @@ total_records = 0
 over_cap = 0
 room_limit = 0
 
+#------MAIN CODE--------------------------------
+
 print("Welcome to the over checker!")
 print("---------------------------")
 print(f"{'Room':20}{'Max':5}{'Min':5}")
@@ -38,8 +40,10 @@ with open("Week2\lab2a.csv") as list:
             print(f"\nYour room is over by: {abs(over_cap)} people\n------------------------------------")
             
 
+
+#-------------------ENDING CODE-------------------------------------
 print(f"\nYou have processed {total_records} rooms. \n\n\nWARNING: \n*********** You have {room_limit} rooms over limit ************")
 
 print("\n\nFile processing complete.")
 
-#avg_age = sum_age / total_records
+
