@@ -1,13 +1,9 @@
-#BRADLEY COPPINGER
-
-#WEEK 3 DAY 2: LIST DEMO 
+#WEEK 3 DAY 2: LIST DEMO
 
 #LISTS can hold multiple points of data and store them to "memory" to be used later on in our program
 
 #this demo utilizes the lab 2B solution file
-#Lab #3 Prompt:
 
-#Your CIO (Chief Information Officer) has asked you to determine how much it would cost the company to replace all machines that are from 2016 and earlier. He plans on spending not more than $2,000 dollars for desktops and $1,500 for laptops.  Store the data from the file lab3a.csv into lists.  Then process the lists to reprint all of the file information (exactly as you did in Lab 2) and also produce an end report that lists the number of desktops that will be replaced, the cost to replace the desktops, the number of laptops that will be replaced, and the cost to replace the laptops.
 
 #VARIABLE DICTIONARY----------------------------
 #records            total records in file
@@ -181,50 +177,9 @@ for index in range(0, records):
 
 
 #we can reprocess the list data as many times as we would like
-#for index in range(0, records):
+for index in range(0, records):
 
-    #print(brand[index])
+    print(brand[index])
 
 ################################################################################################
 
-# Step 1: Initialize empty lists for laptops and desktops from 2016 or later
-filtered_laptops = []
-filtered_desktops = []
-
-# Step 2: Filter records during the existing loop
-for index in range(records):
-    # Check if the year is 2016 or later
-    if int(yr[index]) <= 16:
-        if device[index] == "Laptop":
-            filtered_laptops.append((device[index], yr[index]))
-        elif device[index] == "Desktop":
-            filtered_desktops.append((device[index], yr[index]))
-
-# Step 1: Count the number of items in each list
-total_laptops = len(filtered_laptops)
-total_desktops = len(filtered_desktops)
-
-
-# Step 3: Print the results
-print("\nLaptops from 2016 or later:", filtered_laptops)
-print("\nDesktops from 2016 or later:", filtered_desktops)
-
-# Step 2: Print the total counts
-print(f"\nTotal Laptops from 2016 or later: {total_laptops}")
-print(f"\nTotal Desktops from 2016 or later: {total_desktops}")
-
-# Cost per desktop and laptop
-cost_per_desktop = 2000
-cost_per_laptop = 1500
-
-
-# Total replacement costs
-total_cost_desktops = total_desktops * cost_per_desktop
-total_cost_laptops = total_laptops * cost_per_laptop
-total_overal = total_cost_desktops + total_cost_laptops
-
-# Print the total replacement costs
-print(f"\n ------------ TOTAL COST OF REPLACMENT-------------")
-print(f"Total cost to replace desktops: ${total_cost_desktops}")
-print(f"Total cost to replace laptops: ${total_cost_laptops}")
-print(f"\nTotal Overal Cost ${total_overal}")
