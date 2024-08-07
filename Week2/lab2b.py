@@ -7,7 +7,15 @@
 #Program Promt: You have been asked to produce a report that lists all the computers in the csv file lab2b.csv. Your report should look like the following sample output.  The last line should print the number of computers in the file.
 
 #Variable Dictory
-#
+#type = rec[0], type of machine 
+#brand = rec[1], brand name 
+#cpu = rec [2], CPU it has 
+#ram = rec [3], Ram it has 
+#1st disk = rec [4], Disk installed
+#No HDD - rec [5], determines if extra disk is in
+#2nd disk - rec [6 or 7, based on boolian of HDD], size of 2nd disk
+#os - rec [6 or 7, based on boolian of HDD], operating system
+#yr - rec [7 or 8, based on boolian of HDD], operating system
 #------Functions--------------------------------
 #NO FUNCTIONS
 #IMPORT
