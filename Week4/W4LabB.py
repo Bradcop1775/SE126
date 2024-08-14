@@ -7,7 +7,20 @@
 #In Python, process the text file “lab4A_GOT_NEW.txt” to store each field into its own corresponding list
 
 #Variable list
-
+#firstNames = first name
+#lastNames = last name
+#Age = age 
+#Nickname = nickname
+#House = house person is in
+#stark = house Stark
+#watch = Night's Watch house
+#tully = House Tully
+#lanister = House Lanister
+#targaryen = House Targaryen
+#baratheon = House Baratheon
+#motto = House Motto
+#total_number_of_people = person count 
+#avg_Age = average age 
 
 #-----------------------------------------------------------------
 

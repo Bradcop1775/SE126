@@ -1,0 +1,6 @@
+Human, Warrior, Hunter, Mage, Rouge, Priest, Warlock, Paladin, Monk, Death Knight 
+Dwarf, Warrior, Hunter, Mage, Rouge, Priest, Warlock, Paladin, Shaman, Monk, Death Knight
+Night Elf, Warrior, Hunter, Mage, Rogue, Priest, Warlock, Druid, Monk, Demon Hunter, Death Knight
+Gnome, Warrior, Hunter, Mage, Rouge, Priest, Warlock, Monk, DDeath Knight 
+Draenei, Warrior, Hunter, Mage, Rogue, Priest, Warlock, Paladin, Shaman, Monk, Death Knight
+Worgen, Warrior, Hunter, Mage, Rouge, Priest, Warlock, Druid, Monk, Death Knight
