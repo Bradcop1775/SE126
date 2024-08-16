@@ -71,12 +71,28 @@ clear_terminal()
 
 
 #------MAIN CODE-----------------------------------------------------------
-
+#WELCOME
 print("Welcome to the World of Warcraft character builder!")
 
 print(f"\nYou have your choice between the mighty Horde and the heroic Alliance. \n\nBelow are a description of each\n\n\tThe Alliance is a faction of diverse races united by shared values of honor, justice, and mutual aid. Comprised of humans, dwarves, night elves, gnomes, draenei, worgen, and more, the Alliance values order and tradition. The faction is rooted in a strong sense of community and cooperation, often standing together to defend their lands and their people from external threats. The Alliance is known for its chivalric traditions and noble causes, often fighting for righteousness and against tyranny. Its capital cities are bastions of culture and civilization, where the light of justice is a guiding principle.\n\n\tThe Horde is a faction forged in battle, comprising races with a shared history of oppression, survival, and resilience. Made up of orcs, trolls, tauren, undead (Forsaken), blood elves, goblins, and others, the Horde is a coalition of diverse cultures that value strength, honor, and freedom. Though the Horde has a reputation for being more savage and warlike, it is also a haven for those seeking refuge from persecution. The Horde emphasizes individual strength, unity in diversity, and the importance of standing together against any who threaten their way of life. The faction's capital cities are centers of tribal culture and fierce independence, where survival and honor are paramount.")
-
+#START OF LOOP
 while game == "yes":
+    #Clear list
+    races.clear()
+    classes_human.clear()
+    classes_dwarf.clear()
+    classes_night_elf.clear()
+    classes_gnome.clear()
+    classes_draeni.clear()
+    classes_worgen.clear()
+    classes_orc.clear()
+    classes_undead.clear()
+    classes_tauren.clear()
+    classes_troll.clear()
+    classes_blood_elf.clear()
+    classes_goblin.clear()
+
+    #CHOOSE FACTION
     faction = input ("\nDo you choose the Alliance or Horde?: ").lower()
     clear_terminal()
     if faction == "alliance":
@@ -97,7 +113,7 @@ while game == "yes":
             file = csv.reader(csvfile)
 
             for rec in file: 
-            #'file' is an example of a 2D list XD
+            #'file' is an example of a 2D list, ADD RACES WITH SPECIFIC CLASSES FOR ALLIANCE 
                 races.append(rec[0])
                 classes_human.append(rec[1:])
                 classes_dwarf.append(rec[1:])
@@ -163,7 +179,7 @@ while game == "yes":
                     time.sleep(3)
                     print("Thanks for using our build guide!")
             
-
+    #CHOICE 2, HORDE, CLASSES AND RACES COMBO 
     elif faction == "horde":
         clear_terminal()
         print("For the Horde!")
@@ -249,9 +265,14 @@ while game == "yes":
                     print("\nRemember: Choose the class that fits YOU! You having fun is most important!")
                     time.sleep(3)
                     print("Thanks for using our build guide!")
+        game = input("Would you like to use the builder again? (Yes or no): ").lower()
+        if game !="yes":
+            break
 
-
-
+    #LOOP ERROR 
     else:
         print("Error found. Please Try again.")
         game = input ("Would you like to restart? [Yes or No]: ").lower()
+#ENDING OF CODE
+time.sleep(3)
+print("Thank you for using our character builder. Please enjoy your journey in WOW!")
