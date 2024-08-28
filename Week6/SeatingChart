@@ -1,0 +1,157 @@
+#W6D1 Class Lab
+
+#Bradley Coppinger 
+#Lab 5
+#8/28/24
+
+#Write a program that can be used by a small theater to sell tickets for performances.  The theater’s auditorium has 15 rows of seats with 30 seats in each row. The program should display a screen that shows which seats are available and which are taken.  Seats thar are available are represented by # and seats that are taken are represent by a *.  There are aisles after seats H and V.
+
+# Variable List
+# seating_chart = 2D list representing the seating chart
+# prices = list representing ticket prices for each row 
+# total_sales = total amount of money accumulated from all ticket sales
+# current_sales = list of prices for seats purchased in the current transaction
+# sold_seats = list of tuples representing the seats that have been sold 
+# seat_index = index of the selected seat in the seating chart, based on the user's input
+# row = row number selected by the user for purchasing a seat 
+# seat = seat letter/number selected by the user for purchasing a seat 
+# price = cost of the selected seat based on its row
+# total_cost = total cost of all seats purchased in the current transaction
+# amount_paid = amount of money provided by the user during checkout
+# change = amount of money returned to the user after payment
+# choice = user's menu selection 
+# row_display = formatted string representing a row in the seating chart, used for displaying the chart in a properly aligned manner
+
+
+
+def view_total_sales(total_sales):
+    # Function to display the total sales amount
+    print(f"\nTotal Sales: ${total_sales:.2f}")
+
+def view_sales_info(seating_chart):
+    # Function to display the sales information, including the number of seats sold and available
+    sold_count = sum(row.count("*") for row in seating_chart)
+    available_count = 15 * 30 - sold_count
+
+    # Display sales information
+    print("\nSales Information:")
+    print(f"Total Seats Sold: {sold_count}")
+    print(f"Total Seats Available: {available_count}")
+    print("Seats Available by Row:")
+    
+    # Display available seats for each row
+    for i, row in enumerate(seating_chart, start=1):
+        available_in_row = row.count("#")
+        print(f"Row {i}: {available_in_row} available")
+
+def purchase_seat(seating_chart, prices):
+    # Function to handle the purchase of a seat
+    try:
+        # Get the row number from the user
+        row = int(input("Enter Row Number (1-15): "))
+        
+        # Get the seat letter/number from the user
+        seat = input("Enter Seat Letter/Number (A-4): ").strip().upper()
+        
+        # Convert the seat letter/number to an index
+        seat_index = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234".index(seat)
+
+        # Check if the seat is available
+        if seating_chart[row-1][seat_index] == "#":
+            # Mark the seat as taken
+            seating_chart[row-1][seat_index] = "*"
+            # Get the price of the seat based on the row
+            price = prices[row-1]
+            print(f"Seat {seat} in Row {row} purchased for ${price:.2f}")
+            return price
+        else:
+            print("Seat is already taken.")
+            return 0
+    except (ValueError, IndexError):
+        # Handle any input errors (invalid row/seat)
+        print("Invalid row or seat. Please try again.")
+        return 0
+
+def checkout(current_sales):
+    # Function to handle the checkout process
+    total_cost = sum(current_sales)
+    if total_cost > 0:
+        print(f"\nCheckout: Your total is ${total_cost:.2f}")
+        amount_paid = float(input("Enter payment amount: "))
+        if amount_paid >= total_cost:
+            # Provide change if the payment exceeds the total cost
+            print(f"Thank you for your purchase! Your change is ${amount_paid - total_cost:.2f}.")
+            return total_cost
+        else:
+            print("Insufficient payment.")
+            return 0
+    else:
+        print("No seats purchased yet.")
+        return 0
+
+def display_seating_chart(seating_chart):
+    # Display the seating chart with proper alignment
+    print("\nSeating Chart:")
+    print("Row  Seats")
+    print("     A  B  C  D  E  F  G  H    I  J  K  L  M  N  O  P  Q  R  S  T  U  V    W  X  Y  Z  1  2  3  4")
+    
+    # Iterate over each row in the seating chart and display it
+    for i, row in enumerate(seating_chart, start=1):
+        # Format the row number and seats, ensuring proper alignment of the seats
+        row_display = f"{i:2d}   " + "  ".join(row[:8]) + "    " + "  ".join(row[8:22]) + "    " + "  ".join(row[22:])
+        print(row_display)
+
+def main():
+    # Initialize the seating chart with available seats
+    seating_chart = [["#" for _ in range(30)] for _ in range(15)]
+    
+    # Define the pricing for different rows
+    prices = [200] * 5 + [175] * 5 + [150] * 5
+    
+    # Track total sales across all customers
+    total_sales = 0
+    
+    # Track sales for the current customer session
+    current_sales = []
+
+    while True:
+        # Display the current seating chart
+        display_seating_chart(seating_chart)
+        print("\nMenu:")
+        print("1. Purchase Seat(s)")
+        print("2. View Total Ticket Sales")
+        print("3. View Sales Information")
+        print("4. Checkout")
+        print("5. Quit")
+
+        # Get the user's choice from the menu
+        choice = input("Choose an option: ").strip()
+
+        if choice == "1":
+            # Handle seat purchase
+            price = purchase_seat(seating_chart, prices)
+            if price:
+                current_sales.append(price)
+        elif choice == "2":
+            # Display total ticket sales so far
+            view_total_sales(total_sales)
+        elif choice == "3":
+            # Display sales information
+            view_sales_info(seating_chart)
+        elif choice == "4":
+            # Handle checkout process
+            sales = checkout(current_sales)
+            if sales:
+                total_sales += sales
+                current_sales = []
+        elif choice == "5":
+            # Exit the program
+            print("Exiting the program.")
+            break
+        else:
+            # Handle invalid menu choices
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    # Run the main function if this script is executed
+    main()
