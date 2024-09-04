@@ -1,3 +1,21 @@
+#W6D1 Class Lab
+
+#Bradley Coppinger 
+#Lab 8
+#9/4/2024
+
+#In this lab, you will build a Python application that allows a user to repeatedly choose an option from a menu to search through the data provided in the text file: lab5.txt
+
+# Variable List
+#file_path - The path to the text file (lab5_students.txt) that contains student data.
+#ids - A list that stores all student IDs (from the ID column in the file).
+#last_names - A list that stores all students' last names (from the LastName column in the file).
+##first_names - A list that stores all students' first names (from the FirstName column in the file).
+#class1 - A list that stores the first class that each student is enrolled in (from the Class1 column in the file).
+#class2 - A list that stores the second class that each student is enrolled in (from the Class2 column in the file).
+#class3 - A list that stores the third class that each student is enrolled in (from the Class3 column in the file).
+
+
 # Part 1: Display Menu Function
 # This function displays the menu options to the user and returns their choice
 def display_menu():
@@ -9,8 +27,7 @@ def display_menu():
     return input("Choose an option (1-5): ")
 
 # Part 2: Read Data from File and Store in Parallel Lists
-# We use several lists to store student data. These lists will be parallel,
-# meaning that for each index, the data corresponds to a specific student.
+# Lists
 ids = []
 last_names = []
 first_names = []
@@ -18,7 +35,7 @@ class1 = []
 class2 = []
 class3 = []
 
-# Update the file path to match your provided path
+#file path 
 file_path = r'Week8\lab5_students.txt'
 
 # Open the file containing student data
